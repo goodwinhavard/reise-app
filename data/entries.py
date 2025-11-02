@@ -17,3 +17,10 @@ class TravelEntry:
             "date": date
         }
         self.places.append(place)
+
+
+class Location:
+    def __init__(self, name, x_coord, y_coord):
+        self.cname = name
+        self.x_coord = x_coord
+        self.y_coord = y_coord
