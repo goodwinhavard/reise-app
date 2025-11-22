@@ -18,21 +18,19 @@ def get_coordinates(city, country):
 if 'locations_list' not in st.session_state:
     st.session_state.locations_list = []
 
-st.session_state.locations_list = []
-
 st.title("Add new travel entry")
 
-travel_name = st.text_input("Travel Name")
-travel_date = st.date_input("Travel Start Date")
-travel_end_date = st.date_input("Travel End Date")
-
-travel_text = st.text_area("Add your personal notes")
-
+st.session_state.travel_name = st.text_input("Travel Name")
+st.session_state.travel_start_date = st.date_input("Travel Start Date")
+st.session_state.travel_end_date = st.date_input("Travel End Date")
+st.session_state.travel_text = st.text_area("Add your personal notes")
 
 gc = geonamescache.GeonamesCache()
 countries = gc.get_countries()
 country_names = sorted([c['name'] for c in countries.values()])
 travel_country = st.selectbox("Select a country", country_names)
+
+st.write("Number of locations added:", len(st.session_state.locations_list))
 
 # Get cities
 cities = [city['name'] for city in gc.get_cities().values() if city['countrycode'] == [k for k,v in countries.items() if v['name'] == travel_country][0]]
@@ -84,33 +82,55 @@ for loc in st.session_state.locations_list:
     with cols[1]:
         if st.button("X", key=f"remove_location_{idx}"):
             st.session_state.locations_list.pop(idx)
-            st.experimental_rerun()
+            #st.experimental_rerun()
 
 if len(st.session_state.locations_list) > 0:
     if st.button("Clear Locations"):
         st.session_state.locations_list = []
-
     st.divider()
+
 if st.button("Add Entry"):
 
     err_txt = ""
     # Undersøke at alt er lagt ved
-    if travel_name is None or travel_name.strip() == "":
+    if st.session_state.travel_name is None or st.session_state.travel_name.strip() == "":
         err_txt = err_txt + "Please provide a travel name.\n"
 
-
+    if len(st.session_state.locations_list) == 0:
+        err_txt = err_txt + "Please add at least one location.\n"
 
     if err_txt != "":
         st.write("Not all required fields are filled:")
         st.error(err_txt)
 
     else:
-        st.write("Not implemented yet.")
-    # if travel_name and travel_country and travel_date and travel_end_date:
-    #     entry = TravelEntry(travel_name, travel_country, travel_date, travel_end_date)
-    #     if "travel_entries" not in st.session_state:
-    #         st.session_state.travel_entries = []
-    #     st.session_state.travel_entries.append(entry)
-    #     st.success(f"Entry '{travel_name}' added successfully!")
+        new_entry = TravelEntry(
+            name=st.session_state.travel_name,
+            country=travel_country,
+            start_date=st.session_state.travel_start_date,
+            end_date=st.session_state.travel_end_date
+        )
+
+        for loc in st.session_state.locations_list:
+            new_entry.add_places(
+                name=loc.cname,
+                x_coordinate=loc.x_coord,
+                y_coordinate=loc.y_coord
+            )
+
+        # Save the entry
+        from data.storage import save_travel_entry
+        save_travel_entry(new_entry, st.session_state.travel_text)
+
+        st.success("Travel entry added successfully!")
+
     # else:
-    #     st.error("Please fill in all fields before adding an entry.")
+    #     st.write("Not implemented yet.")
+
+
+if st.button("Clear All"):
+    st.session_state.locations_list = []
+    st.session_state.travel_name = ""
+    st.session_state.travel_start_date = None
+    st.session_state.travel_end_date = None
+    st.session_state.travel_text = ""
