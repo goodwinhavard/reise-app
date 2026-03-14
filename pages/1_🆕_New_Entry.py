@@ -7,6 +7,8 @@ from geopy.geocoders import Nominatim
 import geonamescache
 
 st.set_page_config(layout="wide")
+
+@st.cache_data
 def get_coordinates(city, country):
     geolocator = Nominatim(user_agent="city_mapper")
     location = geolocator.geocode(f"{city}, {country}")
@@ -14,6 +16,22 @@ def get_coordinates(city, country):
         return (location.latitude, location.longitude)
     else:
         return None
+
+@st.cache_data
+def load_countries():
+    gc = geonamescache.GeonamesCache()
+    countries = gc.get_countries()
+    country_names = sorted([c['name'] for c in countries.values()])
+    return countries, country_names
+
+@st.cache_data
+def get_cities_for_country(country_name):
+    gc = geonamescache.GeonamesCache()
+    countries = gc.get_countries()
+    code = next((k for k, v in countries.items() if v['name'] == country_name), None)
+    if not code:
+        return []
+    return sorted([city['name'] for city in gc.get_cities().values() if city['countrycode'] == code])
     
 if 'locations_list' not in st.session_state:
     st.session_state.locations_list = []
@@ -25,16 +43,12 @@ st.session_state.travel_start_date = st.date_input("Travel Start Date")
 st.session_state.travel_end_date = st.date_input("Travel End Date")
 st.session_state.travel_text = st.text_area("Add your personal notes")
 
-gc = geonamescache.GeonamesCache()
-countries = gc.get_countries()
-country_names = sorted([c['name'] for c in countries.values()])
-travel_country = st.selectbox("Select a country", country_names)
+countries, country_names = load_countries()
+st.session_state.travel_country = st.selectbox("Select a country", country_names)
 
 st.write("Number of locations added:", len(st.session_state.locations_list))
 
-# Get cities
-cities = [city['name'] for city in gc.get_cities().values() if city['countrycode'] == [k for k,v in countries.items() if v['name'] == travel_country][0]]
-cities = sorted(cities)
+cities = get_cities_for_country(st.session_state.travel_country)
 
 
 st.divider()
@@ -43,11 +57,11 @@ cols = st.columns([1, 1])  # Three columns: left, divider, right
 with cols[0]:
     st.write("🌇 Add City")
 
-    country_obj = pycountry.countries.get(name=travel_country)
+    country_obj = pycountry.countries.get(name=st.session_state.travel_country)
     country_code = country_obj.alpha_2 if country_obj else None
 
     city = st.selectbox("Select a city", cities)
-    coords = get_coordinates(city, travel_country)
+    coords = get_coordinates(city, st.session_state.travel_country)
 
     x_coord = st.number_input("X-coordinate", value=float(coords[0]), key="x_input_city", format="%.6f")
     y_coord = st.number_input("Y-coordinate", value=float(coords[1]), key="y_input_city", format="%.6f")
@@ -106,27 +120,16 @@ if st.button("Add Entry"):
     else:
         new_entry = TravelEntry(
             name=st.session_state.travel_name,
-            country=travel_country,
+            country=st.session_state.travel_country,
             start_date=st.session_state.travel_start_date,
-            end_date=st.session_state.travel_end_date
+            end_date=st.session_state.travel_end_date,
+            locations=st.session_state.locations_list,
+            text=st.session_state.travel_text
         )
 
-        for loc in st.session_state.locations_list:
-            new_entry.add_places(
-                name=loc.cname,
-                x_coordinate=loc.x_coord,
-                y_coordinate=loc.y_coord
-            )
-
-        # Save the entry
-        from data.storage import save_travel_entry
-        save_travel_entry(new_entry, st.session_state.travel_text)
+        st.session_state.travel_entries.append(new_entry)
 
         st.success("Travel entry added successfully!")
-
-    # else:
-    #     st.write("Not implemented yet.")
-
 
 if st.button("Clear All"):
     st.session_state.locations_list = []
