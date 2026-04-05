@@ -1,5 +1,8 @@
 import streamlit as st
+import os
+from data.sidebar import render_sidebar
 
+render_sidebar()
 st.title("View Travel")
 
 if "travel_entries" not in st.session_state or not st.session_state.travel_entries:
@@ -44,3 +47,13 @@ if locations:
         st.write(f"**{i + 1}. {loc.cname}** — Lat: {loc.x_coord}, Lon: {loc.y_coord}")
 else:
     st.write("No locations registered.")
+
+photos = entry.get_photos() if hasattr(entry, "photos") else []
+photos = [p for p in photos if os.path.exists(p)]
+if photos:
+    st.divider()
+    st.subheader(f"Photos ({len(photos)})")
+    cols = st.columns(3)
+    for i, path in enumerate(photos):
+        with cols[i % 3]:
+            st.image(path, use_container_width=True)

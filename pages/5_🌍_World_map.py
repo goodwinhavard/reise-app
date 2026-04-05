@@ -2,8 +2,10 @@ import streamlit as st
 import pandas as pd
 import pycountry
 import plotly.express as px
+from data.sidebar import render_sidebar
 
 st.set_page_config(layout="wide")
+render_sidebar()
 st.title("World Map")
 
 if "travel_entries" not in st.session_state or not st.session_state.travel_entries:

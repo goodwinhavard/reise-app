@@ -1,5 +1,8 @@
 import streamlit as st
 import pycountry
+import os
+import re
+from data.sidebar import render_sidebar
 
 from data.entries import TravelEntry, Location
 from geopy.geocoders import Nominatim
@@ -36,6 +39,7 @@ def get_cities_for_country(country_name):
 if 'locations_list' not in st.session_state:
     st.session_state.locations_list = []
 
+render_sidebar()
 st.title("Add new travel entry")
 
 st.session_state.travel_name = st.text_input("Travel Name")
@@ -103,10 +107,16 @@ if len(st.session_state.locations_list) > 0:
         st.session_state.locations_list = []
     st.divider()
 
+st.subheader("Photos")
+uploaded_photos = st.file_uploader(
+    "Add photos for this trip",
+    type=["jpg", "jpeg", "png", "webp", "heic"],
+    accept_multiple_files=True,
+)
+
 if st.button("Add Entry"):
 
     err_txt = ""
-    # Undersøke at alt er lagt ved
     if st.session_state.travel_name is None or st.session_state.travel_name.strip() == "":
         err_txt = err_txt + "Please provide a travel name.\n"
 
@@ -118,18 +128,31 @@ if st.button("Add Entry"):
         st.error(err_txt)
 
     else:
+        # Save photos to photos/<sanitized_travel_name>/
+        safe_name = re.sub(r"[^\w\-]", "_", st.session_state.travel_name.strip())
+        photo_dir = os.path.join("photos", safe_name)
+        photo_paths = []
+
+        if uploaded_photos:
+            os.makedirs(photo_dir, exist_ok=True)
+            for photo in uploaded_photos:
+                dest = os.path.join(photo_dir, photo.name)
+                with open(dest, "wb") as f:
+                    f.write(photo.getbuffer())
+                photo_paths.append(dest)
+
         new_entry = TravelEntry(
             name=st.session_state.travel_name,
             country=st.session_state.travel_country,
             start_date=st.session_state.travel_start_date,
             end_date=st.session_state.travel_end_date,
             locations=st.session_state.locations_list,
-            text=st.session_state.travel_text
+            text=st.session_state.travel_text,
+            photos=photo_paths,
         )
 
         st.session_state.travel_entries.append(new_entry)
-
-        st.success("Travel entry added successfully!")
+        st.success(f"Travel entry added successfully! ({len(photo_paths)} photo(s) saved)")
 
 if st.button("Clear All"):
     st.session_state.locations_list = []

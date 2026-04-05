@@ -1,5 +1,7 @@
 import streamlit as st
+from data.sidebar import render_sidebar
 
+render_sidebar()
 st.title("Edit entry")
 
 st.write("There are ", len(st.session_state.travel_entries), " travel entries stored.")

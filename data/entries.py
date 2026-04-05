@@ -1,11 +1,12 @@
 class TravelEntry:
-    def __init__(self, name, country, start_date, end_date, locations, text=None):
+    def __init__(self, name, country, start_date, end_date, locations, text=None, photos=None):
         self.name = name
         self.country = country
         self.start_date = start_date
         self.end_date = end_date
         self.locations = locations
         self.text = text
+        self.photos = photos or []  # list of relative file paths
 
     def get_name(self):
         return self.name
@@ -36,6 +37,11 @@ class TravelEntry:
         return self.text
     def set_text(self, text):
         self.text = text
+
+    def get_photos(self):
+        return self.photos
+    def set_photos(self, photos):
+        self.photos = photos
 
 
 class Location:
