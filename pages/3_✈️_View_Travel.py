@@ -49,7 +49,12 @@ else:
     st.write("No locations registered.")
 
 photos = entry.get_photos() if hasattr(entry, "photos") else []
+st.write(f"Number of photos: {len(photos)}")
 photos = [p for p in photos if os.path.exists(p)]
+
+for p in photos:
+    print(f"Photo path: {p} - Exists: {os.path.exists(p)}")
+
 if photos:
     st.divider()
     st.subheader(f"Photos ({len(photos)})")
