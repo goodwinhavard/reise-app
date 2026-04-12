@@ -53,13 +53,13 @@ st.write(f"Number of photos: {len(photos)}")
 photos = [p for p in photos if os.path.exists(p)]
 
 for p in photos:
-    print(f"Photo path: {p} - Exists: {os.path.exists(p)}")
+    st.write(f"Photo path: {p} - Exists: {os.path.exists(p)}")
 
 if photos:
     st.divider()
     st.subheader(f"Photos ({len(photos)})")
     cols = st.columns(3)
     for i, path in enumerate(photos):
-        st.write(f"Photo {i + 1}: {path}")
+        st.write(f"Photo (later) {i + 1}: {path}")
         with cols[i % 3]:
             st.image(path, use_container_width=True)
