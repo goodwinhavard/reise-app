@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
+from data.sidebar import render_sidebar
 
+render_sidebar()
 st.title("Travel Overview")
 
 if "travel_entries" not in st.session_state or not st.session_state.travel_entries:
