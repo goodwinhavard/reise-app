@@ -1,20 +1,5 @@
 [
   {
-    "name": "test",
-    "country": "Albania",
-    "start_date": "2026-03-15",
-    "end_date": "2026-03-18",
-    "text": "fdsafas",
-    "locations": [
-      {
-        "cname": "Berat",
-        "x_coord": 40.7018636,
-        "y_coord": 19.9580758
-      }
-    ],
-    "photos": []
-  },
-  {
     "name": "Skopje",
     "country": "North Macedonia",
     "start_date": "2025-10-03",
