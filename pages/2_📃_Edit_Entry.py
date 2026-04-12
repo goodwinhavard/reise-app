@@ -1,4 +1,6 @@
 import streamlit as st
+import os
+import re
 from data.sidebar import render_sidebar
 
 render_sidebar()
@@ -47,22 +49,63 @@ if len(travel_names) >0:
                 sel_loc.x_coord = new_loc_x
                 sel_loc.y_coord = new_loc_y
                 st.success("Location updated.")
-                st.experimental_rerun()
+                st.rerun()
         with c2:
             if st.button("Remove Location", key=f"remove_loc_{entry_index}_{sel_idx}"):
                 entry.locations.pop(sel_idx)
                 st.success("Location removed.")
-                st.experimental_rerun()
+                st.rerun()
     else:
         st.write("No locations to edit.")
     
+    # Photos
+    st.divider()
+    st.subheader("Photos")
+
+    existing_photos = entry.get_photos() if hasattr(entry, "photos") else []
+    existing_photos = [p for p in existing_photos if os.path.exists(p)]
+
+    if existing_photos:
+        st.write(f"{len(existing_photos)} photo(s) saved")
+        cols = st.columns(3)
+        for i, path in enumerate(existing_photos):
+            with cols[i % 3]:
+                st.image(path, use_container_width=True)
+                if st.button("Remove", key=f"rm_photo_{i}"):
+                    entry.photos.remove(path)
+                    os.remove(path)
+                    st.rerun()
+    else:
+        st.write("No photos yet.")
+
+    new_photos = st.file_uploader(
+        "Add more photos",
+        type=["jpg", "jpeg", "png", "webp", "heic"],
+        accept_multiple_files=True,
+        key=f"photo_upload_{entry_index}",
+    )
+
     if st.button("Save Changes"):
         entry.name = new_name
         entry.start_date = new_start_date
         entry.end_date = new_end_date
         entry.text = new_text
-        
+
+        if new_photos:
+            safe_name = re.sub(r"[^\w\-]", "_", new_name.strip())
+            photo_dir = os.path.join("photos", safe_name)
+            os.makedirs(photo_dir, exist_ok=True)
+            for photo in new_photos:
+                dest = os.path.join(photo_dir, photo.name)
+                with open(dest, "wb") as f:
+                    f.write(photo.getbuffer())
+                if dest not in entry.photos:
+                    entry.photos.append(dest)
+
         st.success("Travel entry updated successfully!")
 
-else:
-    st.write("No travel entry selected for editing.")
+    # Delete button
+    if st.button("Delete Travel Entry", type="secondary"):
+        st.session_state.travel_entries.remove(entry)
+        st.success("Travel entry deleted successfully!")
+        st.rerun()

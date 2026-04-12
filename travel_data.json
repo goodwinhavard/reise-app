@@ -11,6 +11,29 @@
         "x_coord": 40.7018636,
         "y_coord": 19.9580758
       }
+    ],
+    "photos": []
+  },
+  {
+    "name": "Skopje",
+    "country": "North Macedonia",
+    "start_date": "2025-10-03",
+    "end_date": "2025-10-07",
+    "text": "Langhelg i Skopje. Løp halvmaraton på søndag (1:45:47). Fløy ned på fredag og tilbake tirsdag. Hadde 3 hele dager. Mye attraksjoner stengt på mandagen.",
+    "locations": [
+      {
+        "cname": "Skopje",
+        "x_coord": 41.9961816,
+        "y_coord": 21.4319213
+      }
+    ],
+    "photos": [
+      "photos\\Skopje\\IMG_4261.JPEG",
+      "photos\\Skopje\\IMG_4299.JPEG",
+      "photos\\Skopje\\IMG_4323.JPEG",
+      "photos\\Skopje\\IMG_4331.JPEG",
+      "photos\\Skopje\\IMG_4335.JPEG",
+      "photos\\Skopje\\IMG_4389.JPEG"
     ]
   }
 ]
