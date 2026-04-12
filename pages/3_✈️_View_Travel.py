@@ -49,7 +49,6 @@ else:
     st.write("No locations registered.")
 
 photos = entry.get_photos() if hasattr(entry, "photos") else []
-st.write(f"Number of photos: {len(photos)}")
 
 # Check if running locally (files exist) or on web server
 if photos and os.path.exists(photos[0]):

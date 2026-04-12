@@ -1,3 +1,5 @@
+import datetime
+
 import streamlit as st
 import pycountry
 import os
@@ -43,8 +45,8 @@ render_sidebar()
 st.title("Add new travel entry")
 
 st.session_state.travel_name = st.text_input("Travel Name")
-st.session_state.travel_start_date = st.date_input("Travel Start Date")
-st.session_state.travel_end_date = st.date_input("Travel End Date")
+st.session_state.travel_start_date = st.date_input("Travel Start Date", min_value=datetime.date(year=1984, month=1, day=1))
+st.session_state.travel_end_date = st.date_input("Travel End Date", min_value=st.session_state.travel_start_date)
 st.session_state.travel_text = st.text_area("Add your personal notes")
 
 countries, country_names = load_countries()

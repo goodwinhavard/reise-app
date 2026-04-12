@@ -34,6 +34,12 @@ def dict_to_entry(d):
 def render_sidebar():
     if "travel_entries" not in st.session_state:
         st.session_state.travel_entries = []
+        # Load data automatically if file exists
+        try:
+            with open(FILENAME, "r", encoding="utf-8") as f:
+                st.session_state.travel_entries = [dict_to_entry(d) for d in json.load(f)]
+        except FileNotFoundError:
+            pass  # File doesn't exist, start with empty list
 
     if st.sidebar.button("Load from file"):
         try:

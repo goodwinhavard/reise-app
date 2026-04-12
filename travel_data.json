@@ -20,5 +20,39 @@
       "photos\\Skopje\\IMG_4335.JPEG",
       "photos\\Skopje\\IMG_4389.JPEG"
     ]
+  },
+  {
+    "name": "Australia",
+    "country": "Australia",
+    "start_date": "2014-06-08",
+    "end_date": "2014-06-22",
+    "text": "To ukers tur til Australia med grupperreiser. Stoppet i Hong Kong på vei ned. Besøkte Sydney, Ayers Rock og Cairns.",
+    "locations": [
+      {
+        "cname": "Sydney",
+        "x_coord": -33.8698439,
+        "y_coord": 151.2082848
+      },
+      {
+        "cname": "Cairns",
+        "x_coord": -16.9206657,
+        "y_coord": 145.7721854
+      },
+      {
+        "cname": "Alice Springs",
+        "x_coord": -23.6983884,
+        "y_coord": 133.8812885
+      }
+    ],
+    "photos": [
+      "photos\\Australia\\australia1.JPG",
+      "photos\\Australia\\australia2.JPG",
+      "photos\\Australia\\australia3.JPG",
+      "photos\\Australia\\australia4.JPG",
+      "photos\\Australia\\australia5.JPG",
+      "photos\\Australia\\australia6.JPG",
+      "photos\\Australia\\australia7.JPG",
+      "photos\\Australia\\australia8.JPG"
+    ]
   }
 ]
