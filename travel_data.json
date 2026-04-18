@@ -54,5 +54,20 @@
       "photos\\Australia\\australia7.JPG",
       "photos\\Australia\\australia8.JPG"
     ]
+  },
+  {
+    "name": "Sør-afrika",
+    "country": "South Africa",
+    "start_date": "2014-04-10",
+    "end_date": "2014-04-24",
+    "text": "Safari i Sør-Afrika.",
+    "locations": [
+      {
+        "cname": "Pretoria",
+        "x_coord": -25.7459277,
+        "y_coord": 28.1879101
+      }
+    ],
+    "photos": []
   }
 ]
