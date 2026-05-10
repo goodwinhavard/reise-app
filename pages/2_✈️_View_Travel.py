@@ -9,9 +9,9 @@ if "travel_entries" not in st.session_state or not st.session_state.travel_entri
     st.info("No travel entries found. Add one on the **New Entry** page.")
     st.stop()
 
-entry_names = [entry.get_name() for entry in st.session_state.travel_entries]
-selected_name = st.selectbox("Select a travel entry", entry_names)
-entry = next((e for e in st.session_state.travel_entries if e.get_name() == selected_name), None)
+entry_names_with_years = [f"{entry.get_name()} ({entry.get_start_date().year})" for entry in st.session_state.travel_entries]
+selected_name = st.selectbox("Select a travel entry", entry_names_with_years)
+entry = next((e for e in st.session_state.travel_entries if f"{e.get_name()} ({e.get_start_date().year})" == selected_name), None)
 
 if entry is None:
     st.stop()

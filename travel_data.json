@@ -59,7 +59,7 @@
     "name": "Sør-afrika",
     "country": "South Africa",
     "start_date": "2014-04-10",
-    "end_date": "2014-04-24",
+    "end_date": "2014-04-17",
     "text": "Safari i Sør-Afrika.",
     "locations": [
       {
@@ -69,5 +69,139 @@
       }
     ],
     "photos": []
+  },
+  {
+    "name": "London",
+    "country": "United Kingdom",
+    "start_date": "2011-11-06",
+    "end_date": "2011-11-13",
+    "text": "I forbindelse med kurs på Oslo Lufthavn",
+    "locations": [
+      {
+        "cname": "London",
+        "x_coord": 51.5074456,
+        "y_coord": -0.1277653
+      }
+    ],
+    "photos": [
+      "photos\\London\\London_2011.JPG",
+      "photos\\London\\London_2011_2.jpg"
+    ]
+  },
+  {
+    "name": "Glasgow",
+    "country": "United Kingdom",
+    "start_date": "2011-03-06",
+    "end_date": "2011-03-12",
+    "text": "I forbindelse med kurs ved Oslo Lufthavn. Opplæring med Pax Predict.",
+    "locations": [
+      {
+        "cname": "Glasgow",
+        "x_coord": 55.861155,
+        "y_coord": -4.2501687
+      }
+    ],
+    "photos": [
+      "photos\\Glasgow\\Glasgow1.JPG",
+      "photos\\Glasgow\\Glasgow2.JPG"
+    ]
+  },
+  {
+    "name": "Athen",
+    "country": "Greece",
+    "start_date": "2017-11-08",
+    "end_date": "2017-11-12",
+    "text": "Langhelg i Athen. ",
+    "locations": [
+      {
+        "cname": "London",
+        "x_coord": 51.5074456,
+        "y_coord": -0.1277653
+      },
+      {
+        "cname": "Glasgow",
+        "x_coord": 55.861155,
+        "y_coord": -4.2501687
+      },
+      {
+        "cname": "Athens",
+        "x_coord": 37.9755648,
+        "y_coord": 23.7348324
+      }
+    ],
+    "photos": [
+      "photos\\Athen\\Athen1.JPG",
+      "photos\\Athen\\Athen2.jpg",
+      "photos\\Athen\\Athen3.JPG",
+      "photos\\Athen\\Athen4.JPG"
+    ]
+  },
+  {
+    "name": "Bucuresti",
+    "country": "Romania",
+    "start_date": "2026-04-30",
+    "end_date": "2026-05-04",
+    "text": "Guttetur til Buchuresti",
+    "locations": [
+      {
+        "cname": "Bucharest",
+        "x_coord": 44.4361414,
+        "y_coord": 26.102684
+      }
+    ],
+    "photos": []
+  },
+  {
+    "name": "Beograd",
+    "country": "Serbia",
+    "start_date": "2019-05-29",
+    "end_date": "2019-06-02",
+    "text": "Helgetur til Beograd",
+    "locations": [
+      {
+        "cname": "Belgrade",
+        "x_coord": 44.8153318,
+        "y_coord": 20.4456588
+      }
+    ],
+    "photos": [
+      "photos\\Beograd\\beograd1.jpg",
+      "photos\\Beograd\\beograd2.jpg",
+      "photos\\Beograd\\beograd3.jpg",
+      "photos\\Beograd\\beograd4.jpg"
+    ]
+  },
+  {
+    "name": "USA (NR)",
+    "country": "United States",
+    "start_date": "2019-09-13",
+    "end_date": "2019-09-20",
+    "text": "Tur med NR. Først på Geolog-tur, og så til Yellowstone",
+    "locations": [
+      {
+        "cname": "Billings",
+        "x_coord": 45.7874957,
+        "y_coord": -108.49607
+      },
+      {
+        "cname": "Yellowstone",
+        "x_coord": 999.0,
+        "y_coord": 999.0
+      },
+      {
+        "cname": "Jackson",
+        "x_coord": 32.2998686,
+        "y_coord": -90.1830408
+      }
+    ],
+    "photos": [
+      "photos\\USA__NR_\\usanr1.JPG",
+      "photos\\USA__NR_\\usanr2.JPG",
+      "photos\\USA__NR_\\usanr3.JPG",
+      "photos\\USA__NR_\\usanr4.JPG",
+      "photos\\USA__NR_\\usanr5.JPG",
+      "photos\\USA__NR_\\usanr7.jpg",
+      "photos\\USA__NR_\\usanr8.jpg"
+    ]
   }
 ]
