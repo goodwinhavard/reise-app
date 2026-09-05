@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goodwins Travel</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+
+<style>
+  :root {
+    --bg: #f7f6f3;
+    --card: #ffffff;
+    --text: #1e1e1e;
+    --muted: #6b6b6b;
+    --line: #e6e4df;
+    --accent: #1a6b3a;
+    --accent-soft: #e8f2ec;
+    --shadow: 0 1px 3px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16171a;
+      --card: #1f2125;
+      --text: #ececec;
+      --muted: #9a9a9a;
+      --line: #33353a;
+      --accent: #4ade80;
+      --accent-soft: #22312a;
+      --shadow: 0 1px 3px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--accent); }
+
+  .wrap { max-width: 940px; margin: 0 auto; padding: 0 20px; }
+
+  header.hero {
+    padding: 64px 0 32px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+  }
+  header.hero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.02em;
+  }
+  header.hero p { margin: 0; color: var(--muted); }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 28px 0 8px;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 10px;
+    text-align: center;
+  }
+  .stat b { display: block; font-size: 1.6rem; letter-spacing: -0.02em; }
+  .stat span { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  @media (max-width: 620px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  section { padding: 40px 0; }
+  section h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+
+  #map {
+    height: 440px;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    background: var(--card);
+    z-index: 0;
+  }
+  .leaflet-popup-content { font: 14px/1.4 inherit; }
+  .leaflet-popup-content b { color: var(--accent); }
+
+  .trip {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 26px;
+  }
+  .trip-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+  .trip-head h3 { margin: 0; font-size: 1.5rem; letter-spacing: -0.01em; }
+  .trip-head .flag {
+    width: 30px;
+    height: 20px;
+    border-radius: 3px;
+    object-fit: cover;
+    align-self: center;
+    box-shadow: 0 0 0 1px var(--line);
+  }
+  .trip-meta {
+    color: var(--muted);
+    font-size: .95rem;
+    margin: 6px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .trip-text { margin: 14px 0 0; }
+  .trip-locs { margin: 12px 0 0; font-size: .9rem; color: var(--muted); }
+
+  .gallery {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+  }
+  .gallery img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: zoom-in;
+    background: var(--line);
+    transition: opacity .15s;
+  }
+  .gallery img:hover { opacity: .88; }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: .85rem;
+    padding: 40px 20px 60px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* Lightbox */
+  #lightbox[hidden] { display: none !important; }
+  #lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 24px;
+  }
+  #lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  #lightbox button {
+    position: absolute;
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    border: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #lightbox button:hover { background: rgba(255,255,255,.25); }
+  #lb-close { top: 20px; right: 20px; }
+  #lb-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+  #lb-next { right: 20px; top: 50%; transform: translateY(-50%); }
+  #lb-count {
+    position: absolute;
+    bottom: 20px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,.7);
+    font-size: .85rem;
+  }
+  @media (max-width: 620px) {
+    #lb-prev { left: 8px; }
+    #lb-next { right: 8px; }
+  }
+
+  .loading, .error { text-align: center; color: var(--muted); padding: 80px 20px; }
+
+  /* Jump-to-trip bar */
+  #jumpbar {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  #jumpbar .wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #jumpbar label {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  #jump {
+    flex: 1;
+    max-width: 420px;
+    font: inherit;
+    font-size: .95rem;
+    color: var(--text);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+  .trip { scroll-margin-top: 68px; }
+  #map-section, #trips-section { scroll-margin-top: 60px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Goodwins Travel</h1>
+    <p id="subtitle">Loading trips&hellip;</p>
+    <div class="stats" id="stats" hidden>
+      <div class="stat"><b id="s-trips">0</b><span>Trips</span></div>
+      <div class="stat"><b id="s-countries">0</b><span>Countries</span></div>
+      <div class="stat"><b id="s-days">0</b><span>Days abroad</span></div>
+      <div class="stat"><b id="s-photos">0</b><span>Photos</span></div>
+    </div>
+  </div>
+</header>
+
+<nav id="jumpbar" hidden>
+  <div class="wrap">
+    <label for="jump">Jump to</label>
+    <select id="jump">
+      <option value="">Select a trip&hellip;</option>
+    </select>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section id="map-section" hidden>
+    <h2>Where we've been</h2>
+    <div id="map"></div>
+  </section>
+
+  <section id="trips-section">
+    <h2>Trips</h2>
+    <div id="trips"><p class="loading">Loading&hellip;</p></div>
+  </section>
+</main>
+
+<footer>
+  Built from <code>travel_data.json</code>
+</footer>
+
+<div id="lightbox" hidden>
+  <button id="lb-close" aria-label="Close">&times;</button>
+  <button id="lb-prev" aria-label="Previous">&#8249;</button>
+  <img id="lb-img" alt="">
+  <button id="lb-next" aria-label="Next">&#8250;</button>
+  <div id="lb-count"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<script>
+"use strict";
+
+// Country name -> ISO 3166-1 alpha-2 (for flag images via flagcdn.com)
+const ISO2 = {
+  "North Macedonia": "mk", "Australia": "au", "South Africa": "za",
+  "United Kingdom": "gb", "Greece": "gr", "Romania": "ro",
+  "Serbia": "rs", "United States": "us", "Norway": "no",
+  "France": "fr", "Spain": "es", "Italy": "it", "Germany": "de",
+  "Portugal": "pt", "Netherlands": "nl", "Sweden": "se", "Denmark": "dk",
+  "Iceland": "is", "Ireland": "ie", "Poland": "pl", "Croatia": "hr",
+  "Austria": "at", "Switzerland": "ch", "Belgium": "be", "Czechia": "cz",
+  "Hungary": "hu", "Turkey": "tr", "Japan": "jp", "Thailand": "th",
+  "Canada": "ca", "Mexico": "mx", "Brazil": "br", "Egypt": "eg",
+  "Morocco": "ma", "India": "in", "China": "cn", "New Zealand": "nz"
+};
+
+function flagImg(country) {
+  const code = ISO2[country];
+  if (!code) return "";
+  return `<img class="flag" src="https://flagcdn.com/w40/${code}.png"
+          srcset="https://flagcdn.com/w80/${code}.png 2x"
+          alt="${escapeHtml(country)} flag" loading="lazy">`;
+}
+
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function parseDate(s) { return new Date(s + "T00:00:00"); }
+
+function fmtRange(a, b) {
+  const d1 = parseDate(a), d2 = parseDate(b);
+  const sameYear = d1.getFullYear() === d2.getFullYear();
+  const sameMonth = sameYear && d1.getMonth() === d2.getMonth();
+  const left = sameMonth
+    ? `${d1.getDate()}`
+    : `${d1.getDate()} ${MONTHS[d1.getMonth()]}${sameYear ? "" : " " + d1.getFullYear()}`;
+  const right = `${d2.getDate()} ${MONTHS[d2.getMonth()]} ${d2.getFullYear()}`;
+  return `${left}–${right}`;
+}
+
+function nights(a, b) {
+  return Math.round((parseDate(b) - parseDate(a)) / 86400000);
+}
+
+function photoUrl(p) {
+  return "./" + p.replace(/\\/g, "/").replace(/^\.?\//, "");
+}
+
+function validLoc(loc) {
+  return Math.abs(loc.x_coord) <= 90 && Math.abs(loc.y_coord) <= 180;
+}
+
+// ---- Lightbox ----
+const lb = {
+  el: document.getElementById("lightbox"),
+  img: document.getElementById("lb-img"),
+  count: document.getElementById("lb-count"),
+  list: [], i: 0,
+  open(list, i) {
+    this.list = list; this.i = i;
+    this.el.hidden = false;
+    document.body.style.overflow = "hidden";
+    this.render();
+  },
+  close() {
+    this.el.hidden = true;
+    this.img.src = "";
+    document.body.style.overflow = "";
+  },
+  step(n) {
+    this.i = (this.i + n + this.list.length) % this.list.length;
+    this.render();
+  },
+  render() {
+    this.img.src = this.list[this.i];
+    this.count.textContent = `${this.i + 1} / ${this.list.length}`;
+  }
+};
+document.getElementById("lb-close").onclick = () => lb.close();
+document.getElementById("lb-prev").onclick = (e) => { e.stopPropagation(); lb.step(-1); };
+document.getElementById("lb-next").onclick = (e) => { e.stopPropagation(); lb.step(1); };
+lb.el.onclick = (e) => { if (e.target === lb.el) lb.close(); };
+document.addEventListener("keydown", (e) => {
+  if (lb.el.hidden) return;
+  if (e.key === "Escape") lb.close();
+  if (e.key === "ArrowLeft") lb.step(-1);
+  if (e.key === "ArrowRight") lb.step(1);
+});
+
+// ---- Render ----
+function render(entries) {
+  entries.sort((a, b) => parseDate(b.start_date) - parseDate(a.start_date));
+  const today = new Date();
+
+  // Stats
+  const countries = new Set(entries.map(e => e.country));
+  const days = entries.reduce((s, e) => s + nights(e.start_date, e.end_date), 0);
+  const photoCount = entries.reduce((s, e) => s + (e.photos ? e.photos.length : 0), 0);
+  document.getElementById("s-trips").textContent = entries.length;
+  document.getElementById("s-countries").textContent = countries.size;
+  document.getElementById("s-days").textContent = days;
+  document.getElementById("s-photos").textContent = photoCount;
+  document.getElementById("stats").hidden = false;
+  document.getElementById("subtitle").textContent =
+    `${entries.length} trips · ${countries.size} countries`;
+
+  // Trips
+  const container = document.getElementById("trips");
+  container.innerHTML = "";
+  const jump = document.getElementById("jump");
+
+  entries.forEach((e, i) => {
+    const card = document.createElement("article");
+    card.className = "trip";
+    card.id = "trip-" + i;
+
+    const opt = document.createElement("option");
+    opt.value = card.id;
+    opt.textContent = `${e.name} — ${parseDate(e.start_date).getFullYear()}`;
+    jump.appendChild(opt);
+
+    const upcoming = parseDate(e.start_date) > today;
+    const locs = (e.locations || []).map(l => l.cname);
+    const photos = (e.photos || []).map(photoUrl);
+
+    card.innerHTML = `
+      <div class="trip-head">
+        ${flagImg(e.country)}
+        <h3>${escapeHtml(e.name)}</h3>
+        ${upcoming ? '<span class="badge">Upcoming</span>' : ''}
+      </div>
+      <div class="trip-meta">
+        <span>${escapeHtml(e.country)}</span>
+        <span>${fmtRange(e.start_date, e.end_date)}</span>
+        <span>${nights(e.start_date, e.end_date)} days</span>
+      </div>
+      ${e.text ? `<p class="trip-text">${escapeHtml(e.text)}</p>` : ''}
+      ${locs.length ? `<p class="trip-locs">📍 ${locs.map(escapeHtml).join(" · ")}</p>` : ''}
+    `;
+
+    if (photos.length) {
+      const g = document.createElement("div");
+      g.className = "gallery";
+      photos.forEach((src, idx) => {
+        const im = document.createElement("img");
+        im.src = src;
+        im.loading = "lazy";
+        im.alt = `${e.name} photo ${idx + 1}`;
+        im.onerror = () => im.remove();
+        im.onclick = () => lb.open(photos, idx);
+        g.appendChild(im);
+      });
+      card.appendChild(g);
+    }
+    container.appendChild(card);
+  });
+
+  // Jump-to-trip selector
+  document.getElementById("jumpbar").hidden = false;
+  jump.onchange = () => {
+    const el = jump.value && document.getElementById(jump.value);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  buildMap(entries);
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
+}
+
+function buildMap(entries) {
+  const points = [];
+  entries.forEach((e, ei) => {
+    for (const loc of (e.locations || [])) {
+      if (validLoc(loc)) points.push({ e, ei, loc });
+    }
+  });
+  if (!points.length) return;
+
+  document.getElementById("map-section").hidden = false;
+
+  const map = L.map("map", { scrollWheelZoom: false });
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; OpenStreetMap contributors",
+    maxZoom: 19
+  }).addTo(map);
+
+  const latlngs = [];
+  for (const { e, ei, loc } of points) {
+    const m = L.circleMarker([loc.x_coord, loc.y_coord], {
+      radius: 7, color: "#fff", weight: 2,
+      fillColor: "#1a6b3a", fillOpacity: 1
+    }).addTo(map);
+    m.bindPopup(
+      `<b>${escapeHtml(loc.cname)}</b><br>${escapeHtml(e.name)} · ${parseDate(e.start_date).getFullYear()}` +
+      `<br><a href="#trip-${ei}">View trip &rarr;</a>`
+    );
+    latlngs.push([loc.x_coord, loc.y_coord]);
+  }
+  map.fitBounds(latlngs, { padding: [40, 40] });
+}
+
+// ---- Load ----
+fetch("./travel_data.json")
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(render)
+  .catch(err => {
+    document.getElementById("trips").innerHTML =
+      `<p class="error">Could not load travel_data.json (${err.message}).<br>
+       If you opened this file directly, run a local server instead:<br>
+       <code>python -m http.server</code> then visit <code>localhost:8000</code></p>`;
+    document.getElementById("subtitle").textContent = "";
+  });
+</script>
+</body>
+</html>
