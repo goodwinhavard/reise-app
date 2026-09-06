@@ -149,7 +149,12 @@
         "y_coord": 26.102684
       }
     ],
-    "photos": []
+    "photos": [
+      "photos\\Bucuresti\\bucuresti1.JPEG",
+      "photos\\Bucuresti\\bucuresti2.JPEG",
+      "photos\\Bucuresti\\bucuresti3.JPEG",
+      "photos\\Bucuresti\\bucuresti4.JPEG"
+    ]
   },
   {
     "name": "Beograd",
@@ -202,6 +207,26 @@
       "photos\\USA__NR_\\usanr5.JPG",
       "photos\\USA__NR_\\usanr7.jpg",
       "photos\\USA__NR_\\usanr8.jpg"
+    ]
+  },
+  {
+    "name": "København",
+    "country": "Denmark",
+    "start_date": "2025-05-09",
+    "end_date": "2026-05-11",
+    "text": "Jobbtur til København. Var det også i helga.",
+    "locations": [
+      {
+        "cname": "Copenhagen",
+        "x_coord": 55.6867243,
+        "y_coord": 12.5700724
+      }
+    ],
+    "photos": [
+      "photos\\København\\IMG_2787.JPEG",
+      "photos\\København\\IMG_2797.JPEG",
+      "photos\\København\\IMG_2807.JPEG",
+      "photos\\København\\IMG_2831.JPEG"
     ]
   }
 ]
