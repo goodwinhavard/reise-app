@@ -205,8 +205,7 @@
       "photos\\USA__NR_\\usanr3.JPG",
       "photos\\USA__NR_\\usanr4.JPG",
       "photos\\USA__NR_\\usanr5.JPG",
-      "photos\\USA__NR_\\usanr7.jpg",
-      "photos\\USA__NR_\\usanr8.jpg"
+      "photos\\USA__NR_\\usanr7.jpg"
     ]
   },
   {
@@ -227,6 +226,70 @@
       "photos\\København\\IMG_2797.JPEG",
       "photos\\København\\IMG_2807.JPEG",
       "photos\\København\\IMG_2831.JPEG"
+    ]
+  },
+  {
+    "name": "Lisboa",
+    "country": "Portugal",
+    "start_date": "2024-10-11",
+    "end_date": "2024-10-17",
+    "text": "Ukestur til Lisboa. Løp halvmaraton på søndagen, og hadde resten av uka i byen.",
+    "locations": [
+      {
+        "cname": "Helsinki",
+        "x_coord": 60.1666204,
+        "y_coord": 24.9435408
+      }
+    ],
+    "photos": [
+      "photos\\Lisboa\\IMG_0389.JPEG",
+      "photos\\Lisboa\\IMG_0436.JPEG",
+      "photos\\Lisboa\\IMG_0487.JPEG",
+      "photos\\Lisboa\\IMG_0522.JPEG",
+      "photos\\Lisboa\\IMG_0537.JPEG",
+      "photos\\Lisboa\\IMG_0626.JPEG",
+      "photos\\Lisboa\\IMG_0656.JPEG",
+      "photos\\Lisboa\\IMG_0682.JPEG",
+      "photos\\Lisboa\\IMG_0684.JPEG",
+      "photos\\Lisboa\\IMG_0709.JPEG"
+    ]
+  },
+  {
+    "name": "Helsinki",
+    "country": "Finland",
+    "start_date": "2023-11-03",
+    "end_date": "2023-11-07",
+    "text": "Noen dager i Helsinki, med dagstur til  Talllinn i Estland",
+    "locations": [
+      {
+        "cname": "Helsinki",
+        "x_coord": 60.1666204,
+        "y_coord": 24.9435408
+      }
+    ],
+    "photos": [
+      "photos\\Helsinki\\IMG_7451.JPEG",
+      "photos\\Helsinki\\IMG_7465.JPEG"
+    ]
+  },
+  {
+    "name": "Tallinn",
+    "country": "Estonia",
+    "start_date": "2023-11-14",
+    "end_date": "2023-11-14",
+    "text": "Dagstur til Tallinn (Estland) fra Helsinki. Tok båt tur/retur fra Helsinki.",
+    "locations": [
+      {
+        "cname": "Tallinn",
+        "x_coord": 59.437242,
+        "y_coord": 24.7572693
+      }
+    ],
+    "photos": [
+      "photos\\Tallinn\\IMG_7509.JPEG",
+      "photos\\Tallinn\\IMG_7519.JPEG",
+      "photos\\Tallinn\\IMG_7521.JPEG",
+      "photos\\Tallinn\\IMG_7535.JPEG"
     ]
   }
 ]
