@@ -291,5 +291,134 @@
       "photos\\Tallinn\\IMG_7521.JPEG",
       "photos\\Tallinn\\IMG_7535.JPEG"
     ]
+  },
+  {
+    "name": "USA 2023",
+    "country": "United States",
+    "start_date": "2023-07-08",
+    "end_date": "2023-07-22",
+    "text": "USA tur med biltur til San Fransisco og Los Angeles, med Disneyland og Universal Studios.",
+    "locations": [
+      {
+        "cname": "Luzern",
+        "x_coord": 47.052144,
+        "y_coord": 8.3058123
+      },
+      {
+        "cname": "Zürich",
+        "x_coord": 47.3744489,
+        "y_coord": 8.5410422
+      }
+    ],
+    "photos": [
+      "photos\\USA_2023\\IMG_4800.JPEG",
+      "photos\\USA_2023\\IMG_4857.JPEG",
+      "photos\\USA_2023\\IMG_5261.JPEG",
+      "photos\\USA_2023\\IMG_5637.JPEG",
+      "photos\\USA_2023\\IMG_5654.JPEG",
+      "photos\\USA_2023\\IMG_5685.JPEG",
+      "photos\\USA_2023\\IMG_5752.JPEG",
+      "photos\\USA_2023\\IMG_5870.JPEG",
+      "photos\\USA_2023\\IMG_5908.JPEG",
+      "photos\\USA_2023\\IMG_5910.JPEG",
+      "photos\\USA_2023\\IMG_6077.JPEG",
+      "photos\\USA_2023\\IMG_6131.JPEG",
+      "photos\\USA_2023\\IMG_6296.JPEG",
+      "photos\\USA_2023\\IMG_6352.JPEG",
+      "photos\\USA_2023\\IMG_6373.JPEG",
+      "photos\\USA_2023\\IMG_6391.JPEG",
+      "photos\\USA_2023\\IMG_6686.JPG",
+      "photos\\USA_2023\\IMG_6702.PNG",
+      "photos\\USA_2023\\IMG_6764.JPEG",
+      "photos\\USA_2023\\IMG_6887.JPEG"
+    ]
+  },
+  {
+    "name": "USA 2022",
+    "country": "United States",
+    "start_date": "2022-07-08",
+    "end_date": "2022-07-29",
+    "text": "Noen ukers sommerferie på farmen",
+    "locations": [
+      {
+        "cname": "Luzern",
+        "x_coord": 47.052144,
+        "y_coord": 8.3058123
+      },
+      {
+        "cname": "Zürich",
+        "x_coord": 47.3744489,
+        "y_coord": 8.5410422
+      }
+    ],
+    "photos": [
+      "photos\\USA_2022\\IMG_2015.JPEG",
+      "photos\\USA_2022\\IMG_2090.JPEG",
+      "photos\\USA_2022\\IMG_2196.JPEG",
+      "photos\\USA_2022\\IMG_2300.PNG"
+    ]
+  },
+  {
+    "name": "Sveits",
+    "country": "Switzerland",
+    "start_date": "2022-10-08",
+    "end_date": "2022-10-15",
+    "text": "Høstferie i Sveits",
+    "locations": [
+      {
+        "cname": "Luzern",
+        "x_coord": 47.052144,
+        "y_coord": 8.3058123
+      },
+      {
+        "cname": "Zürich",
+        "x_coord": 47.3744489,
+        "y_coord": 8.5410422
+      }
+    ],
+    "photos": [
+      "photos\\Sveits\\IMG_3097.JPG",
+      "photos\\Sveits\\IMG_3202.JPG",
+      "photos\\Sveits\\IMG_3264.JPG",
+      "photos\\Sveits\\IMG_3327.JPG",
+      "photos\\Sveits\\IMG_3329.JPG",
+      "photos\\Sveits\\IMG_3456.JPG",
+      "photos\\Sveits\\IMG_3486.JPG"
+    ]
+  },
+  {
+    "name": "Jordan",
+    "country": "Jordan",
+    "start_date": "2017-04-07",
+    "end_date": "2017-04-14",
+    "text": "Påsketur til Jordan med Gadventures",
+    "locations": [
+      {
+        "cname": "Amman",
+        "x_coord": 31.9515694,
+        "y_coord": 35.9239625
+      },
+      {
+        "cname": "Aqaba",
+        "x_coord": 29.5266483,
+        "y_coord": 35.0075433
+      },
+      {
+        "cname": "Jarash",
+        "x_coord": 32.2485005,
+        "y_coord": 35.8604596
+      }
+    ],
+    "photos": [
+      "photos\\Jordan\\jodan5.JPG",
+      "photos\\Jordan\\jordan1.JPG",
+      "photos\\Jordan\\jordan2.JPG",
+      "photos\\Jordan\\jordan3.JPG",
+      "photos\\Jordan\\jordan4.JPG",
+      "photos\\Jordan\\jordan5.JPG",
+      "photos\\Jordan\\jordan6.jpg",
+      "photos\\Jordan\\jordan7.JPG",
+      "photos\\Jordan\\jordan8.JPG"
+    ]
   }
 ]
