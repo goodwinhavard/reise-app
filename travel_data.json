@@ -420,5 +420,55 @@
       "photos\\Jordan\\jordan7.JPG",
       "photos\\Jordan\\jordan8.JPG"
     ]
+  },
+  {
+    "name": "Budapest",
+    "country": "Hungary",
+    "start_date": "2018-10-18",
+    "end_date": "2018-10-21",
+    "text": "Helgetur til Budapest",
+    "locations": [
+      {
+        "cname": "Budapest",
+        "x_coord": 47.4978789,
+        "y_coord": 19.0402383
+      }
+    ],
+    "photos": [
+      "photos\\Budapest\\001.JPG",
+      "photos\\Budapest\\033.JPG",
+      "photos\\Budapest\\102.JPG",
+      "photos\\Budapest\\119.JPG"
+    ]
+  },
+  {
+    "name": "Kenya",
+    "country": "Kenya",
+    "start_date": "2018-07-13",
+    "end_date": "2018-07-21",
+    "text": "Safari i Kenya med Gadventures. Var i Masai Mara og 2 andre nasjonalparker (Ambolesi og Lake Nakuru)",
+    "locations": [
+      {
+        "cname": "Nairobi",
+        "x_coord": -1.302398,
+        "y_coord": 36.8288509
+      },
+      {
+        "cname": "Nakuru",
+        "x_coord": -0.2802724,
+        "y_coord": 36.0712048
+      }
+    ],
+    "photos": [
+      "photos\\Kenya\\019.JPG",
+      "photos\\Kenya\\074.JPG",
+      "photos\\Kenya\\158.JPG",
+      "photos\\Kenya\\175.JPG",
+      "photos\\Kenya\\218.JPG",
+      "photos\\Kenya\\232.JPG",
+      "photos\\Kenya\\295.JPG",
+      "photos\\Kenya\\440.JPG",
+      "photos\\Kenya\\441.JPG"
+    ]
   }
 ]

@@ -46,7 +46,15 @@ st.title("Add new travel entry")
 
 st.session_state.travel_name = st.text_input("Travel Name")
 st.session_state.travel_start_date = st.date_input("Travel Start Date", min_value=datetime.date(year=1984, month=1, day=1))
-st.session_state.travel_end_date = st.date_input("Travel End Date", min_value=st.session_state.travel_start_date)
+
+end_date_mode = st.radio("Set end date by", ["Calendar", "Number of days"], horizontal=True)
+if end_date_mode == "Number of days":
+    num_days = st.number_input("Trip length (days)", min_value=1, value=1, step=1)
+    st.session_state.travel_end_date = st.session_state.travel_start_date + datetime.timedelta(days=int(num_days))
+    st.caption(f"Travel End Date: {st.session_state.travel_end_date}")
+else:
+    st.session_state.travel_end_date = st.date_input("Travel End Date", min_value=st.session_state.travel_start_date)
+
 st.session_state.travel_text = st.text_area("Add your personal notes")
 
 countries, country_names = load_countries()

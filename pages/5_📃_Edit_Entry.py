@@ -1,3 +1,5 @@
+import datetime
+
 import streamlit as st
 import os
 import re
@@ -17,11 +19,29 @@ if len(travel_names) >0:
 
     entry = next((e for e in st.session_state.travel_entries if e.get_name() == seleted_entry), None)
 
+    # find entry index to create unique keys
+    entry_index = next(i for i, e in enumerate(st.session_state.travel_entries) if e is entry)
+
     st.write(f"Editing travel entry: **{entry.get_name()}**")
-    
+
     new_name = st.text_input("Travel Name", value=entry.name)
     new_start_date = st.date_input("Travel Start Date", value=entry.start_date)
-    new_end_date = st.date_input("Travel End Date", value=entry.end_date)
+
+    end_date_mode = st.radio(
+        "Set end date by", ["Calendar", "Number of days"], horizontal=True, key=f"end_mode_{entry_index}"
+    )
+    if end_date_mode == "Number of days":
+        default_days = max((entry.end_date - entry.start_date).days, 1)
+        num_days = st.number_input(
+            "Trip length (days)", min_value=1, value=default_days, step=1, key=f"end_days_{entry_index}"
+        )
+        new_end_date = new_start_date + datetime.timedelta(days=int(num_days))
+        st.caption(f"Travel End Date: {new_end_date}")
+    else:
+        new_end_date = st.date_input(
+            "Travel End Date", value=entry.end_date, min_value=new_start_date, key=f"end_date_{entry_index}"
+        )
+
     new_text = st.text_area("Personal Notes", value=entry.text)
 
     # Edit locations list (select one to edit or remove)
@@ -30,9 +50,6 @@ if len(travel_names) >0:
     st.write("Number of locations:", len(locations))
 
     if len(locations) > 0:
-        # find entry index to create unique keys
-        entry_index = next(i for i, e in enumerate(st.session_state.travel_entries) if e is entry)
-
         display_items = [f"{i+1}: {loc.cname} ({loc.x_coord}, {loc.y_coord})" for i, loc in enumerate(locations)]
         selected_display = st.selectbox("Select a location to edit/remove", display_items, key=f"sel_loc_{entry_index}")
         sel_idx = display_items.index(selected_display)
