@@ -68,7 +68,17 @@
         "y_coord": 28.1879101
       }
     ],
-    "photos": []
+    "photos": [
+      "photos\\Sør-afrika\\0016.JPG",
+      "photos\\Sør-afrika\\1044.JPG",
+      "photos\\Sør-afrika\\1055.JPG",
+      "photos\\Sør-afrika\\2051.JPG",
+      "photos\\Sør-afrika\\2057.JPG",
+      "photos\\Sør-afrika\\3031.JPG",
+      "photos\\Sør-afrika\\3037.JPG",
+      "photos\\Sør-afrika\\5055.JPG",
+      "photos\\Sør-afrika\\6148.JPG"
+    ]
   },
   {
     "name": "London",
@@ -212,7 +222,7 @@
     "name": "København",
     "country": "Denmark",
     "start_date": "2025-05-09",
-    "end_date": "2026-05-11",
+    "end_date": "2025-05-13",
     "text": "Jobbtur til København. Var det også i helga.",
     "locations": [
       {
@@ -469,6 +479,99 @@
       "photos\\Kenya\\295.JPG",
       "photos\\Kenya\\440.JPG",
       "photos\\Kenya\\441.JPG"
+    ]
+  },
+  {
+    "name": "Praha",
+    "country": "Czechia",
+    "start_date": "2018-04-18",
+    "end_date": "2018-04-22",
+    "text": "Påsketur til Praha. Hadde også dagstur til Bohemian Switzerland National Park nord i Tsjekkia.",
+    "locations": [
+      {
+        "cname": "Berlin",
+        "x_coord": 52.5173885,
+        "y_coord": 13.3951309
+      }
+    ],
+    "photos": [
+      "photos\\Praha\\042.JPG",
+      "photos\\Praha\\045.JPG",
+      "photos\\Praha\\062.JPG",
+      "photos\\Praha\\098.JPG",
+      "photos\\Praha\\132_6.jpg",
+      "photos\\Praha\\145.JPG",
+      "photos\\Praha\\168.jpg"
+    ]
+  },
+  {
+    "name": "Sør-Korea",
+    "country": "South Korea",
+    "start_date": "2026-10-08",
+    "end_date": "2026-10-17",
+    "text": "Ukestur til Sør-Korea. Var Seuol og så et par dager sør i landet i Busan.",
+    "locations": [
+      {
+        "cname": "Berlin",
+        "x_coord": 52.5173885,
+        "y_coord": 13.3951309
+      }
+    ],
+    "photos": [
+      "photos\\Sør-Korea\\203.JPG",
+      "photos\\Sør-Korea\\207_7.jpg",
+      "photos\\Sør-Korea\\281.jpg",
+      "photos\\Sør-Korea\\335.JPG",
+      "photos\\Sør-Korea\\358.JPG",
+      "photos\\Sør-Korea\\462.jpg",
+      "photos\\Sør-Korea\\536.JPG",
+      "photos\\Sør-Korea\\590.jpg",
+      "photos\\Sør-Korea\\761.jpg"
+    ]
+  },
+  {
+    "name": "Beograd",
+    "country": "Serbia",
+    "start_date": "2019-10-17",
+    "end_date": "2019-10-20",
+    "text": "Langhelg til Beograd",
+    "locations": [
+      {
+        "cname": "Berlin",
+        "x_coord": 52.5173885,
+        "y_coord": 13.3951309
+      }
+    ],
+    "photos": [
+      "photos\\Beograd\\20190529_191508.jpg",
+      "photos\\Beograd\\20190530_105915.jpg",
+      "photos\\Beograd\\20190530_122840.jpg",
+      "photos\\Beograd\\20190530_124749.jpg",
+      "photos\\Beograd\\20190530_124940.jpg",
+      "photos\\Beograd\\20190531_111637.jpg",
+      "photos\\Beograd\\20190531_132038.jpg"
+    ]
+  },
+  {
+    "name": "Berlin",
+    "country": "Germany",
+    "start_date": "2019-10-23",
+    "end_date": "2019-10-27",
+    "text": "Var på seminar med Norsk Regnesentral, og var igjen noen dager.",
+    "locations": [
+      {
+        "cname": "Berlin",
+        "x_coord": 52.5173885,
+        "y_coord": 13.3951309
+      }
+    ],
+    "photos": [
+      "photos\\Berlin\\20191025_170450.jpg",
+      "photos\\Berlin\\20191025_172517.jpg",
+      "photos\\Berlin\\20191025_175027.jpg",
+      "photos\\Berlin\\20191026_120253.jpg",
+      "photos\\Berlin\\20191026_120431.jpg",
+      "photos\\Berlin\\20191026_161554.jpg"
     ]
   }
 ]
