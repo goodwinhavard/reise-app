@@ -507,8 +507,8 @@
   {
     "name": "Sør-Korea",
     "country": "South Korea",
-    "start_date": "2026-10-08",
-    "end_date": "2026-10-17",
+    "start_date": "2018-10-10",
+    "end_date": "2018-10-20",
     "text": "Ukestur til Sør-Korea. Var Seuol og så et par dager sør i landet i Busan.",
     "locations": [
       {
@@ -572,6 +572,40 @@
       "photos\\Berlin\\20191026_120253.jpg",
       "photos\\Berlin\\20191026_120431.jpg",
       "photos\\Berlin\\20191026_161554.jpg"
+    ]
+  },
+  {
+    "name": "Chile & Påskeøya",
+    "country": "Chile",
+    "start_date": "2019-10-09",
+    "end_date": "2019-10-19",
+    "text": "Reiste med Escape Travels. Var i Chile (Santiago og Valparaiso) og 3 dager på Påskeøya.",
+    "locations": [
+      {
+        "cname": "Santiago",
+        "x_coord": -33.4376995,
+        "y_coord": -70.6510671
+      },
+      {
+        "cname": "Valparaíso",
+        "x_coord": -33.0458456,
+        "y_coord": -71.6196749
+      },
+      {
+        "cname": "Easter Island",
+        "x_coord": -27.12,
+        "y_coord": -109.35
+      }
+    ],
+    "photos": [
+      "photos\\Chile___Påskeøya\\001_14.jpg",
+      "photos\\Chile___Påskeøya\\012_2.jpg",
+      "photos\\Chile___Påskeøya\\026.JPG",
+      "photos\\Chile___Påskeøya\\042.JPG",
+      "photos\\Chile___Påskeøya\\065.JPG",
+      "photos\\Chile___Påskeøya\\116.JPG",
+      "photos\\Chile___Påskeøya\\173.JPG",
+      "photos\\Chile___Påskeøya\\205_6.jpg"
     ]
   }
 ]
