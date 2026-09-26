@@ -1,9 +1,43 @@
 import datetime
 
-import streamlit as st
 import os
 import re
+
+import pycountry
+import streamlit as st
+from geopy.geocoders import Nominatim
+import geonamescache
+
+from data.entries import TravelEntry, Location
 from data.sidebar import render_sidebar
+
+
+@st.cache_data
+def get_coordinates(city, country):
+    geolocator = Nominatim(user_agent="city_mapper")
+    location = geolocator.geocode(f"{city}, {country}")
+    if location:
+        return (location.latitude, location.longitude)
+    return None
+
+
+@st.cache_data
+def load_countries():
+    gc = geonamescache.GeonamesCache()
+    countries = gc.get_countries()
+    country_names = sorted([c["name"] for c in countries.values()])
+    return countries, country_names
+
+
+@st.cache_data
+def get_cities_for_country(country_name):
+    gc = geonamescache.GeonamesCache()
+    countries = gc.get_countries()
+    code = next((k for k, v in countries.items() if v["name"] == country_name), None)
+    if not code:
+        return []
+    return sorted([city["name"] for city in gc.get_cities().values() if city["countrycode"] == code])
+
 
 render_sidebar()
 st.title("Edit entry")
@@ -43,6 +77,70 @@ if len(travel_names) >0:
         )
 
     new_text = st.text_area("Personal Notes", value=entry.text)
+
+    st.subheader("Add a new location")
+    countries, country_names = load_countries()
+    new_location_country = st.selectbox(
+        "Select a country for the new location",
+        country_names,
+        key=f"new_loc_country_{entry_index}",
+    )
+    available_cities = get_cities_for_country(new_location_country)
+
+    if available_cities:
+        new_location_city = st.selectbox(
+            "Select a city",
+            available_cities,
+            key=f"new_loc_city_{entry_index}",
+        )
+        city_coords = get_coordinates(new_location_city, new_location_country)
+    else:
+        new_location_city = ""
+        city_coords = None
+
+    cols = st.columns([1, 1])
+    with cols[0]:
+        st.write("🌇 Add City")
+        if city_coords:
+            city_x = st.number_input(
+                "X-coordinate",
+                value=float(city_coords[0]),
+                key=f"new_loc_city_x_{entry_index}",
+                format="%.6f",
+            )
+            city_y = st.number_input(
+                "Y-coordinate",
+                value=float(city_coords[1]),
+                key=f"new_loc_city_y_{entry_index}",
+                format="%.6f",
+            )
+        else:
+            city_x = st.number_input("X-coordinate", value=0.0, key=f"new_loc_city_x_{entry_index}", format="%.6f")
+            city_y = st.number_input("Y-coordinate", value=0.0, key=f"new_loc_city_y_{entry_index}", format="%.6f")
+
+        if st.button("➕ Add City", key=f"add_city_{entry_index}"):
+            if new_location_city:
+                entry.add_location(Location(new_location_city, city_x, city_y))
+                st.success("Location added.")
+                st.rerun()
+            else:
+                st.warning("Please select a city first.")
+
+    with cols[1]:
+        st.write("🏞️ Add Custom Location")
+        custom_name = st.text_input("Location Name", key=f"custom_loc_name_{entry_index}")
+        custom_x = st.number_input("X-coordinate", value=999.0, key=f"custom_loc_x_{entry_index}", format="%.6f")
+        custom_y = st.number_input("Y-coordinate", value=999.0, key=f"custom_loc_y_{entry_index}", format="%.6f")
+
+        if st.button("➕ Add Location", key=f"add_custom_loc_{entry_index}"):
+            if custom_name.strip():
+                entry.add_location(Location(custom_name.strip(), custom_x, custom_y))
+                st.success("Custom location added.")
+                st.rerun()
+            else:
+                st.warning("Please enter a location name.")
+
+    st.divider()
 
     # Edit locations list (select one to edit or remove)
     locations = entry.locations if hasattr(entry, "locations") else []

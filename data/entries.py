@@ -4,9 +4,12 @@ class TravelEntry:
         self.country = country
         self.start_date = start_date
         self.end_date = end_date
-        self.locations = locations
+        self.locations = locations or []
         self.text = text
         self.photos = photos or []  # list of relative file paths
+
+    def add_location(self, location):
+        self.locations.append(location)
 
     def get_name(self):
         return self.name

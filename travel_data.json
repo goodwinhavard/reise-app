@@ -246,9 +246,9 @@
     "text": "Ukestur til Lisboa. Løp halvmaraton på søndagen, og hadde resten av uka i byen.",
     "locations": [
       {
-        "cname": "Helsinki",
-        "x_coord": 60.1666204,
-        "y_coord": 24.9435408
+        "cname": "Lisbon",
+        "x_coord": 38.7077507,
+        "y_coord": -9.1365919
       }
     ],
     "photos": [
@@ -512,9 +512,14 @@
     "text": "Ukestur til Sør-Korea. Var Seuol og så et par dager sør i landet i Busan.",
     "locations": [
       {
-        "cname": "Berlin",
-        "x_coord": 52.5173885,
-        "y_coord": 13.3951309
+        "cname": "Seoul",
+        "x_coord": 37.5666791,
+        "y_coord": 126.9782914
+      },
+      {
+        "cname": "Busan",
+        "x_coord": 35.1799528,
+        "y_coord": 129.0752365
       }
     ],
     "photos": [
@@ -606,6 +611,67 @@
       "photos\\Chile___Påskeøya\\116.JPG",
       "photos\\Chile___Påskeøya\\173.JPG",
       "photos\\Chile___Påskeøya\\205_6.jpg"
+    ]
+  },
+  {
+    "name": "Palermo",
+    "country": "Italy",
+    "start_date": "2019-09-21",
+    "end_date": "2019-09-25",
+    "text": "Konferanse i forbindelse med Norsk Regnesentral",
+    "locations": [
+      {
+        "cname": "Palermo",
+        "x_coord": 38.1112268,
+        "y_coord": 13.3524434
+      }
+    ],
+    "photos": [
+      "photos\\Palermo\\20190907_205004.jpg",
+      "photos\\Palermo\\20190908_115742.jpg",
+      "photos\\Palermo\\20190909_182524.jpg",
+      "photos\\Palermo\\20190910_120715.jpg"
+    ]
+  },
+  {
+    "name": "Japan",
+    "country": "Japan",
+    "start_date": "2016-04-07",
+    "end_date": "2016-04-17",
+    "text": "Tur til Japan i påsken. Besøkte Tokyo, Kyoto, Osaka og Hiroshima.",
+    "locations": [
+      {
+        "cname": "Tokyo",
+        "x_coord": 35.6768601,
+        "y_coord": 139.7638947
+      },
+      {
+        "cname": "Hiroshima",
+        "x_coord": 34.3917241,
+        "y_coord": 132.4517589
+      },
+      {
+        "cname": "Osaka",
+        "x_coord": 34.6937569,
+        "y_coord": 135.5014539
+      },
+      {
+        "cname": "Kyoto",
+        "x_coord": 35.0115754,
+        "y_coord": 135.7681441
+      }
+    ],
+    "photos": [
+      "photos\\Japan\\0029.JPG",
+      "photos\\Japan\\0067.JPG",
+      "photos\\Japan\\0100.JPG",
+      "photos\\Japan\\0129.JPG",
+      "photos\\Japan\\0164.JPG",
+      "photos\\Japan\\0233.JPG",
+      "photos\\Japan\\0236.JPG",
+      "photos\\Japan\\0438.JPG",
+      "photos\\Japan\\0495.JPG",
+      "photos\\Japan\\0549.JPG"
     ]
   }
 ]
