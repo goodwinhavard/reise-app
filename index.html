@@ -326,25 +326,6 @@ function flagImg(country) {
           alt="${escapeHtml(country)} flag" loading="lazy">`;
 }
 
-const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-
-function parseDate(s) { return new Date(s + "T00:00:00"); }
-
-function fmtRange(a, b) {
-  const d1 = parseDate(a), d2 = parseDate(b);
-  const sameYear = d1.getFullYear() === d2.getFullYear();
-  const sameMonth = sameYear && d1.getMonth() === d2.getMonth();
-  const left = sameMonth
-    ? `${d1.getDate()}`
-    : `${d1.getDate()} ${MONTHS[d1.getMonth()]}${sameYear ? "" : " " + d1.getFullYear()}`;
-  const right = `${d2.getDate()} ${MONTHS[d2.getMonth()]} ${d2.getFullYear()}`;
-  return `${left}–${right}`;
-}
-
-function nights(a, b) {
-  return Math.round((parseDate(b) - parseDate(a)) / 86400000);
-}
-
 function photoUrl(p) {
   return "./" + p.replace(/\\/g, "/").replace(/^\.?\//, "");
 }
@@ -392,12 +373,11 @@ document.addEventListener("keydown", (e) => {
 
 // ---- Render ----
 function render(entries) {
-  entries.sort((a, b) => parseDate(b.start_date) - parseDate(a.start_date));
-  const today = new Date();
+  entries.sort((a, b) => b.year - a.year);
 
   // Stats
   const countries = new Set(entries.map(e => e.country));
-  const days = entries.reduce((s, e) => s + nights(e.start_date, e.end_date), 0);
+  const days = entries.reduce((s, e) => s + e.days, 0);
   const photoCount = entries.reduce((s, e) => s + (e.photos ? e.photos.length : 0), 0);
   document.getElementById("s-trips").textContent = entries.length;
   document.getElementById("s-countries").textContent = countries.size;
@@ -419,10 +399,10 @@ function render(entries) {
 
     const opt = document.createElement("option");
     opt.value = card.id;
-    opt.textContent = `${e.name} — ${parseDate(e.start_date).getFullYear()}`;
+    opt.textContent = `${e.name} — ${e.year}`;
     jump.appendChild(opt);
 
-    const upcoming = parseDate(e.start_date) > today;
+    const upcoming = e.year > new Date().getFullYear();
     const locs = (e.locations || []).map(l => l.cname);
     const photos = (e.photos || []).map(photoUrl);
 
@@ -434,8 +414,8 @@ function render(entries) {
       </div>
       <div class="trip-meta">
         <span>${escapeHtml(e.country)}</span>
-        <span>${fmtRange(e.start_date, e.end_date)}</span>
-        <span>${nights(e.start_date, e.end_date)} days</span>
+        <span>${e.year}</span>
+        <span>${e.days} days</span>
       </div>
       ${e.text ? `<p class="trip-text">${escapeHtml(e.text)}</p>` : ''}
       ${locs.length ? `<p class="trip-locs">📍 ${locs.map(escapeHtml).join(" · ")}</p>` : ''}
@@ -498,7 +478,7 @@ function buildMap(entries) {
       fillColor: "#1a6b3a", fillOpacity: 1
     }).addTo(map);
     m.bindPopup(
-      `<b>${escapeHtml(loc.cname)}</b><br>${escapeHtml(e.name)} · ${parseDate(e.start_date).getFullYear()}` +
+      `<b>${escapeHtml(loc.cname)}</b><br>${escapeHtml(e.name)} · ${e.year}` +
       `<br><a href="#trip-${ei}">View trip &rarr;</a>`
     );
     latlngs.push([loc.x_coord, loc.y_coord]);

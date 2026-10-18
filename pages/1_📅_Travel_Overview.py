@@ -13,14 +13,11 @@ entries = st.session_state.travel_entries
 
 rows = []
 for entry in entries:
-    duration = (entry.get_end_date() - entry.get_start_date()).days
     rows.append({
         "Travel": entry.get_name(),
         "Country": entry.get_country(),
-        "Year": entry.get_start_date().year,
-        "Start": entry.get_start_date(),
-        "End": entry.get_end_date(),
-        "Days": duration,
+        "Year": entry.get_year(),
+        "Days": entry.get_days(),
         "Locations": len(entry.get_locations()),
     })
 

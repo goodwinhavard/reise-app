@@ -9,9 +9,9 @@ if "travel_entries" not in st.session_state or not st.session_state.travel_entri
     st.info("No travel entries found. Add one on the **New Entry** page.")
     st.stop()
 
-entry_names_with_years = [f"{entry.get_name()} ({entry.get_start_date().year})" for entry in st.session_state.travel_entries]
+entry_names_with_years = [f"{entry.get_name()} ({entry.get_year()})" for entry in st.session_state.travel_entries]
 selected_name = st.selectbox("Select a travel entry", entry_names_with_years)
-entry = next((e for e in st.session_state.travel_entries if f"{e.get_name()} ({e.get_start_date().year})" == selected_name), None)
+entry = next((e for e in st.session_state.travel_entries if f"{e.get_name()} ({e.get_year()})" == selected_name), None)
 
 if entry is None:
     st.stop()
@@ -23,16 +23,15 @@ col1, col2 = st.columns(2)
 with col1:
     st.metric("Country", entry.get_country())
 with col2:
-    duration = (entry.get_end_date() - entry.get_start_date()).days
-    st.metric("Duration", f"{duration} days")
+    st.metric("Duration", f"{entry.get_days()} days")
 
 col3, col4 = st.columns(2)
 with col3:
-    st.write("**Start Date**")
-    st.write(entry.get_start_date())
+    st.write("**Year**")
+    st.write(entry.get_year())
 with col4:
-    st.write("**End Date**")
-    st.write(entry.get_end_date())
+    st.write("**Days**")
+    st.write(entry.get_days())
 
 if entry.get_text():
     st.divider()

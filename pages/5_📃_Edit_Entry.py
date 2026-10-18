@@ -1,5 +1,3 @@
-import datetime
-
 import os
 import re
 
@@ -59,22 +57,21 @@ if len(travel_names) >0:
     st.write(f"Editing travel entry: **{entry.get_name()}**")
 
     new_name = st.text_input("Travel Name", value=entry.name)
-    new_start_date = st.date_input("Travel Start Date", value=entry.start_date)
-
-    end_date_mode = st.radio(
-        "Set end date by", ["Calendar", "Number of days"], horizontal=True, key=f"end_mode_{entry_index}"
+    new_year = st.number_input(
+        "Travel Year",
+        min_value=1984,
+        max_value=9999,
+        value=entry.year,
+        step=1,
+        key=f"travel_year_{entry_index}",
     )
-    if end_date_mode == "Number of days":
-        default_days = max((entry.end_date - entry.start_date).days, 1)
-        num_days = st.number_input(
-            "Trip length (days)", min_value=1, value=default_days, step=1, key=f"end_days_{entry_index}"
-        )
-        new_end_date = new_start_date + datetime.timedelta(days=int(num_days))
-        st.caption(f"Travel End Date: {new_end_date}")
-    else:
-        new_end_date = st.date_input(
-            "Travel End Date", value=entry.end_date, min_value=new_start_date, key=f"end_date_{entry_index}"
-        )
+    new_days = st.number_input(
+        "Number of days",
+        min_value=0,
+        value=entry.days,
+        step=1,
+        key=f"travel_days_{entry_index}",
+    )
 
     new_text = st.text_area("Personal Notes", value=entry.text)
 
@@ -202,8 +199,8 @@ if len(travel_names) >0:
 
     if st.button("Save Changes"):
         entry.name = new_name
-        entry.start_date = new_start_date
-        entry.end_date = new_end_date
+        entry.year = new_year
+        entry.days = new_days
         entry.text = new_text
 
         if new_photos:

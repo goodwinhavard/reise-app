@@ -1,9 +1,9 @@
 class TravelEntry:
-    def __init__(self, name, country, start_date, end_date, locations, text=None, photos=None):
+    def __init__(self, name, country, year, days, locations, text=None, photos=None):
         self.name = name
         self.country = country
-        self.start_date = start_date
-        self.end_date = end_date
+        self.year = year
+        self.days = days
         self.locations = locations or []
         self.text = text
         self.photos = photos or []  # list of relative file paths
@@ -16,20 +16,20 @@ class TravelEntry:
     def set_name(self, name):
         self.name = name
 
-    def get_country(self):
+    def get_country(self):  
         return self.country
     def set_country(self, country):
         self.country = country
 
-    def get_start_date(self):
-        return self.start_date
-    def set_start_date(self, start_date):
-        self.start_date = start_date
+    def get_year(self):
+        return self.year
+    def set_year(self, year):
+        self.year = year
 
-    def get_end_date(self):
-        return self.end_date
-    def set_end_date(self, end_date):
-        self.end_date = end_date
+    def get_days(self):
+        return self.days
+    def set_days(self, days):
+        self.days = days
 
     def get_locations(self):
         return self.locations

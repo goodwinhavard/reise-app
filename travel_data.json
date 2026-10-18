@@ -2,8 +2,8 @@
   {
     "name": "Skopje",
     "country": "North Macedonia",
-    "start_date": "2025-10-03",
-    "end_date": "2025-10-07",
+    "year": 2025,
+    "days": 4,
     "text": "Langhelg i Skopje. Løp halvmaraton på søndag (1:45:47). Fløy ned på fredag og tilbake tirsdag. Hadde 3 hele dager. Mye attraksjoner stengt på mandagen.",
     "locations": [
       {
@@ -24,8 +24,8 @@
   {
     "name": "Australia",
     "country": "Australia",
-    "start_date": "2014-06-08",
-    "end_date": "2014-06-22",
+    "year": 2014,
+    "days": 14,
     "text": "To ukers tur til Australia med grupperreiser. Stoppet i Hong Kong på vei ned. Besøkte Sydney, Ayers Rock og Cairns.",
     "locations": [
       {
@@ -58,8 +58,8 @@
   {
     "name": "Sør-afrika",
     "country": "South Africa",
-    "start_date": "2014-04-10",
-    "end_date": "2014-04-17",
+    "year": 2014,
+    "days": 7,
     "text": "Safari i Sør-Afrika.",
     "locations": [
       {
@@ -83,8 +83,8 @@
   {
     "name": "London",
     "country": "United Kingdom",
-    "start_date": "2011-11-06",
-    "end_date": "2011-11-13",
+    "year": 2011,
+    "days": 7,
     "text": "I forbindelse med kurs på Oslo Lufthavn",
     "locations": [
       {
@@ -101,8 +101,8 @@
   {
     "name": "Glasgow",
     "country": "United Kingdom",
-    "start_date": "2011-03-06",
-    "end_date": "2011-03-12",
+    "year": 2011,
+    "days": 6,
     "text": "I forbindelse med kurs ved Oslo Lufthavn. Opplæring med Pax Predict.",
     "locations": [
       {
@@ -119,8 +119,8 @@
   {
     "name": "Athen",
     "country": "Greece",
-    "start_date": "2017-11-08",
-    "end_date": "2017-11-12",
+    "year": 2017,
+    "days": 4,
     "text": "Langhelg i Athen. ",
     "locations": [
       {
@@ -149,8 +149,8 @@
   {
     "name": "Bucuresti",
     "country": "Romania",
-    "start_date": "2026-04-30",
-    "end_date": "2026-05-04",
+    "year": 2026,
+    "days": 4,
     "text": "Guttetur til Buchuresti",
     "locations": [
       {
@@ -169,8 +169,8 @@
   {
     "name": "Beograd",
     "country": "Serbia",
-    "start_date": "2019-05-29",
-    "end_date": "2019-06-02",
+    "year": 2019,
+    "days": 4,
     "text": "Helgetur til Beograd",
     "locations": [
       {
@@ -189,8 +189,8 @@
   {
     "name": "USA (NR)",
     "country": "United States",
-    "start_date": "2019-09-13",
-    "end_date": "2019-09-20",
+    "year": 2019,
+    "days": 7,
     "text": "Tur med NR. Først på Geolog-tur, og så til Yellowstone",
     "locations": [
       {
@@ -221,8 +221,8 @@
   {
     "name": "København",
     "country": "Denmark",
-    "start_date": "2025-05-09",
-    "end_date": "2025-05-13",
+    "year": 2025,
+    "days": 4,
     "text": "Jobbtur til København. Var det også i helga.",
     "locations": [
       {
@@ -241,8 +241,8 @@
   {
     "name": "Lisboa",
     "country": "Portugal",
-    "start_date": "2024-10-11",
-    "end_date": "2024-10-17",
+    "year": 2024,
+    "days": 6,
     "text": "Ukestur til Lisboa. Løp halvmaraton på søndagen, og hadde resten av uka i byen.",
     "locations": [
       {
@@ -267,8 +267,8 @@
   {
     "name": "Helsinki",
     "country": "Finland",
-    "start_date": "2023-11-03",
-    "end_date": "2023-11-07",
+    "year": 2023,
+    "days": 4,
     "text": "Noen dager i Helsinki, med dagstur til  Talllinn i Estland",
     "locations": [
       {
@@ -285,8 +285,8 @@
   {
     "name": "Tallinn",
     "country": "Estonia",
-    "start_date": "2023-11-14",
-    "end_date": "2023-11-14",
+    "year": 2023,
+    "days": 0,
     "text": "Dagstur til Tallinn (Estland) fra Helsinki. Tok båt tur/retur fra Helsinki.",
     "locations": [
       {
@@ -305,8 +305,8 @@
   {
     "name": "USA 2023",
     "country": "United States",
-    "start_date": "2023-07-08",
-    "end_date": "2023-07-22",
+    "year": 2023,
+    "days": 14,
     "text": "USA tur med biltur til San Fransisco og Los Angeles, med Disneyland og Universal Studios.",
     "locations": [
       {
@@ -346,8 +346,8 @@
   {
     "name": "USA 2022",
     "country": "United States",
-    "start_date": "2022-07-08",
-    "end_date": "2022-07-29",
+    "year": 2022,
+    "days": 21,
     "text": "Noen ukers sommerferie på farmen",
     "locations": [
       {
@@ -371,8 +371,8 @@
   {
     "name": "Sveits",
     "country": "Switzerland",
-    "start_date": "2022-10-08",
-    "end_date": "2022-10-15",
+    "year": 2022,
+    "days": 7,
     "text": "Høstferie i Sveits",
     "locations": [
       {
@@ -399,8 +399,8 @@
   {
     "name": "Jordan",
     "country": "Jordan",
-    "start_date": "2017-04-07",
-    "end_date": "2017-04-14",
+    "year": 2017,
+    "days": 7,
     "text": "Påsketur til Jordan med Gadventures",
     "locations": [
       {
@@ -434,8 +434,8 @@
   {
     "name": "Budapest",
     "country": "Hungary",
-    "start_date": "2018-10-18",
-    "end_date": "2018-10-21",
+    "year": 2018,
+    "days": 3,
     "text": "Helgetur til Budapest",
     "locations": [
       {
@@ -454,8 +454,8 @@
   {
     "name": "Kenya",
     "country": "Kenya",
-    "start_date": "2018-07-13",
-    "end_date": "2018-07-21",
+    "year": 2018,
+    "days": 8,
     "text": "Safari i Kenya med Gadventures. Var i Masai Mara og 2 andre nasjonalparker (Ambolesi og Lake Nakuru)",
     "locations": [
       {
@@ -484,8 +484,8 @@
   {
     "name": "Praha",
     "country": "Czechia",
-    "start_date": "2018-04-18",
-    "end_date": "2018-04-22",
+    "year": 2018,
+    "days": 4,
     "text": "Påsketur til Praha. Hadde også dagstur til Bohemian Switzerland National Park nord i Tsjekkia.",
     "locations": [
       {
@@ -507,8 +507,8 @@
   {
     "name": "Sør-Korea",
     "country": "South Korea",
-    "start_date": "2018-10-10",
-    "end_date": "2018-10-20",
+    "year": 2018,
+    "days": 10,
     "text": "Ukestur til Sør-Korea. Var Seuol og så et par dager sør i landet i Busan.",
     "locations": [
       {
@@ -537,8 +537,8 @@
   {
     "name": "Beograd",
     "country": "Serbia",
-    "start_date": "2019-10-17",
-    "end_date": "2019-10-20",
+    "year": 2019,
+    "days": 3,
     "text": "Langhelg til Beograd",
     "locations": [
       {
@@ -560,8 +560,8 @@
   {
     "name": "Berlin",
     "country": "Germany",
-    "start_date": "2019-10-23",
-    "end_date": "2019-10-27",
+    "year": 2019,
+    "days": 4,
     "text": "Var på seminar med Norsk Regnesentral, og var igjen noen dager.",
     "locations": [
       {
@@ -582,8 +582,8 @@
   {
     "name": "Chile & Påskeøya",
     "country": "Chile",
-    "start_date": "2019-10-09",
-    "end_date": "2019-10-19",
+    "year": 2019,
+    "days": 10,
     "text": "Reiste med Escape Travels. Var i Chile (Santiago og Valparaiso) og 3 dager på Påskeøya.",
     "locations": [
       {
@@ -616,8 +616,8 @@
   {
     "name": "Palermo",
     "country": "Italy",
-    "start_date": "2019-09-21",
-    "end_date": "2019-09-25",
+    "year": 2019,
+    "days": 4,
     "text": "Konferanse i forbindelse med Norsk Regnesentral",
     "locations": [
       {
@@ -636,8 +636,8 @@
   {
     "name": "Japan",
     "country": "Japan",
-    "start_date": "2016-04-07",
-    "end_date": "2016-04-17",
+    "year": 2016,
+    "days": 10,
     "text": "Tur til Japan i påsken. Besøkte Tokyo, Kyoto, Osaka og Hiroshima.",
     "locations": [
       {
@@ -677,8 +677,8 @@
   {
     "name": "Liseberg",
     "country": "Sweden",
-    "start_date": "1990-05-04",
-    "end_date": "1990-05-07",
+    "year": 1990,
+    "days": 3,
     "text": "",
     "locations": [
       {
@@ -692,8 +692,8 @@
   {
     "name": "Roadtrip - Amsterdam",
     "country": "Netherlands",
-    "start_date": "2005-07-10",
-    "end_date": "2005-07-12",
+    "year": 2005,
+    "days": 2,
     "text": "Del av roadtrip - Amsterdam",
     "locations": [
       {
@@ -705,6 +705,302 @@
     "photos": [
       "photos\\Roadtrip_-_Amsterdam\\DSC01062.JPG",
       "photos\\Roadtrip_-_Amsterdam\\DSC01063.JPG"
+    ]
+  },
+  {
+    "name": "Roadtrip Milano",
+    "country": "Italy",
+    "year": 2005,
+    "days": 1,
+    "text": "Innom milano",
+    "locations": [
+      {
+        "cname": "Milan",
+        "x_coord": 45.4641943,
+        "y_coord": 9.1896346
+      }
+    ],
+    "photos": [
+      "photos\\Roadtrip_Milano\\DSC01229.JPG",
+      "photos\\Roadtrip_Milano\\DSC01233.JPG"
+    ]
+  },
+  {
+    "name": "Roadtrip Monaco",
+    "country": "Monaco",
+    "year": 2005,
+    "days": 1,
+    "text": "Innom Monaco en kveld",
+    "locations": [
+      {
+        "cname": "Portland",
+        "x_coord": 45.5202471,
+        "y_coord": -122.674194
+      },
+      {
+        "cname": "Seattle",
+        "x_coord": 47.6038321,
+        "y_coord": -122.330062
+      }
+    ],
+    "photos": [
+      "photos\\Roadtrip_Monaco\\DSC00108.JPG",
+      "photos\\Roadtrip_Monaco\\DSC01397.JPG",
+      "photos\\Roadtrip_Monaco\\DSC01406.JPG"
+    ]
+  },
+  {
+    "name": "Roadtrip Nice",
+    "country": "France",
+    "year": 2005,
+    "days": 3,
+    "text": "Noen dager i Nice",
+    "locations": [
+      {
+        "cname": "Portland",
+        "x_coord": 45.5202471,
+        "y_coord": -122.674194
+      },
+      {
+        "cname": "Seattle",
+        "x_coord": 47.6038321,
+        "y_coord": -122.330062
+      }
+    ],
+    "photos": [
+      "photos\\Roadtrip_Nice\\DSC01333.JPG",
+      "photos\\Roadtrip_Nice\\DSC01339.JPG",
+      "photos\\Roadtrip_Nice\\DSC01442.JPG"
+    ]
+  },
+  {
+    "name": "Roadtrip Paris",
+    "country": "France",
+    "year": 2005,
+    "days": 3,
+    "text": "Noen dager i Paris",
+    "locations": [
+      {
+        "cname": "Portland",
+        "x_coord": 45.5202471,
+        "y_coord": -122.674194
+      },
+      {
+        "cname": "Seattle",
+        "x_coord": 47.6038321,
+        "y_coord": -122.330062
+      }
+    ],
+    "photos": [
+      "photos\\Roadtrip_Paris\\DSC01129.JPG",
+      "photos\\Roadtrip_Paris\\DSC01138.JPG",
+      "photos\\Roadtrip_Paris\\DSC01153.JPG",
+      "photos\\Roadtrip_Paris\\DSC01188.JPG"
+    ]
+  },
+  {
+    "name": "USA 2011",
+    "country": "United States",
+    "year": 2011,
+    "days": 20,
+    "text": "Tur til usa høsten 2011. Hadde en biltur opp til Seattle og over til Canada",
+    "locations": [
+      {
+        "cname": "Portland",
+        "x_coord": 45.5202471,
+        "y_coord": -122.674194
+      },
+      {
+        "cname": "Seattle",
+        "x_coord": 47.6038321,
+        "y_coord": -122.330062
+      }
+    ],
+    "photos": [
+      "photos\\USA_2011\\0023.jpg",
+      "photos\\USA_2011\\0092.jpg",
+      "photos\\USA_2011\\3027.JPG"
+    ]
+  },
+  {
+    "name": "Vancouver 2011",
+    "country": "Canada",
+    "year": 2011,
+    "days": 3,
+    "text": "Biltur til Vancouver i forbindelse med usa-turen 2011",
+    "locations": [
+      {
+        "cname": "Puerto Iguazú",
+        "x_coord": -25.6107508,
+        "y_coord": -54.5764199
+      },
+      {
+        "cname": "Buenos Aires",
+        "x_coord": -34.6095579,
+        "y_coord": -58.3887904
+      }
+    ],
+    "photos": [
+      "photos\\Vancouver_2011\\2187.JPG",
+      "photos\\Vancouver_2011\\2206.JPG",
+      "photos\\Vancouver_2011\\2228.JPG"
+    ]
+  },
+  {
+    "name": "Brasil",
+    "country": "Brazil",
+    "year": 2016,
+    "days": 5,
+    "text": "GAdventures tur til Brasil",
+    "locations": [
+      {
+        "cname": "Puerto Iguazú",
+        "x_coord": -25.6107508,
+        "y_coord": -54.5764199
+      },
+      {
+        "cname": "Buenos Aires",
+        "x_coord": -34.6095579,
+        "y_coord": -58.3887904
+      }
+    ],
+    "photos": [
+      "photos\\Brasil\\0182.JPG",
+      "photos\\Brasil\\0197.JPG",
+      "photos\\Brasil\\0278.JPG",
+      "photos\\Brasil\\0290.JPG",
+      "photos\\Brasil\\0402.JPG",
+      "photos\\Brasil\\0420.JPG",
+      "photos\\Brasil\\0467.jpg"
+    ]
+  },
+  {
+    "name": "Argentina",
+    "country": "Argentina",
+    "year": 2016,
+    "days": 4,
+    "text": "GAdventures tur til Argentina sommeren 2016",
+    "locations": [
+      {
+        "cname": "Puerto Iguazú",
+        "x_coord": -25.6107508,
+        "y_coord": -54.5764199
+      },
+      {
+        "cname": "Buenos Aires",
+        "x_coord": -34.6095579,
+        "y_coord": -58.3887904
+      }
+    ],
+    "photos": [
+      "photos\\Argentina\\0003.jpg",
+      "photos\\Argentina\\0092.JPG",
+      "photos\\Argentina\\0159.JPG"
+    ]
+  },
+  {
+    "name": "Island",
+    "country": "Iceland",
+    "year": 2014,
+    "days": 5,
+    "text": "Islandstur med Norsk Regensentral",
+    "locations": [
+      {
+        "cname": "Reykjavík",
+        "x_coord": 64.145981,
+        "y_coord": -21.9422367
+      }
+    ],
+    "photos": [
+      "photos\\Island\\0009.JPG",
+      "photos\\Island\\0020.JPG",
+      "photos\\Island\\0078.JPG",
+      "photos\\Island\\0119.JPG",
+      "photos\\Island\\0186.JPG",
+      "photos\\Island\\0203.JPG",
+      "photos\\Island\\0243.JPG",
+      "photos\\Island\\0291.JPG"
+    ]
+  },
+  {
+    "name": "Uruguay",
+    "country": "Uruguay",
+    "year": 2016,
+    "days": 1,
+    "text": "Dagstur til Uruguay fra Buenos Aires.",
+    "locations": [
+      {
+        "cname": "Madrid",
+        "x_coord": 40.416782,
+        "y_coord": -3.703507
+      }
+    ],
+    "photos": [
+      "photos\\Uruguay\\0046.JPG"
+    ]
+  },
+  {
+    "name": "India",
+    "country": "India",
+    "year": 2015,
+    "days": 8,
+    "text": "Tur til India jul/nyttår med Gadventures",
+    "locations": [
+      {
+        "cname": "Madrid",
+        "x_coord": 40.416782,
+        "y_coord": -3.703507
+      }
+    ],
+    "photos": [
+      "photos\\India\\0013.JPG",
+      "photos\\India\\0028.JPG",
+      "photos\\India\\0048.JPG",
+      "photos\\India\\0098.JPG",
+      "photos\\India\\0104.JPG",
+      "photos\\India\\0156.JPG",
+      "photos\\India\\0231.JPG",
+      "photos\\India\\0259.JPG",
+      "photos\\India\\0295.JPG",
+      "photos\\India\\0363_2.JPG"
+    ]
+  },
+  {
+    "name": "Kina",
+    "country": "China",
+    "year": 2001,
+    "days": 6,
+    "text": "Tur til Bejing",
+    "locations": [
+      {
+        "cname": "Madrid",
+        "x_coord": 40.416782,
+        "y_coord": -3.703507
+      }
+    ],
+    "photos": []
+  },
+  {
+    "name": "Madrid",
+    "country": "Spain",
+    "year": 2013,
+    "days": 4,
+    "text": "En tur til Madrid i sommerferien",
+    "locations": [
+      {
+        "cname": "Madrid",
+        "x_coord": 40.416782,
+        "y_coord": -3.703507
+      }
+    ],
+    "photos": [
+      "photos\\Madrid\\IMG_1486.JPG",
+      "photos\\Madrid\\IMG_1511.JPG",
+      "photos\\Madrid\\IMG_1538.JPG",
+      "photos\\Madrid\\IMG_1554.JPG",
+      "photos\\Madrid\\IMG_1686.JPG",
+      "photos\\Madrid\\IMG_1815.JPG",
+      "photos\\Madrid\\IMG_1873.JPG"
     ]
   }
 ]

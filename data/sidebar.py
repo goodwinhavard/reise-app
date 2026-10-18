@@ -10,8 +10,8 @@ def entry_to_dict(entry):
     return {
         "name": entry.name,
         "country": entry.country,
-        "start_date": entry.start_date.isoformat(),
-        "end_date": entry.end_date.isoformat(),
+        "year": entry.year,
+        "days": entry.days,
         "text": entry.text,
         "locations": [{"cname": loc.cname, "x_coord": loc.x_coord, "y_coord": loc.y_coord} for loc in entry.locations],
         "photos": entry.photos,
@@ -20,11 +20,20 @@ def entry_to_dict(entry):
 
 def dict_to_entry(d):
     locations = [Location(loc["cname"], loc["x_coord"], loc["y_coord"]) for loc in d.get("locations", [])]
+    if "year" in d and "days" in d:
+        year = int(d["year"])
+        days = int(d["days"])
+    else:
+        start_date = date.fromisoformat(d["start_date"])
+        end_date = date.fromisoformat(d["end_date"])
+        year = start_date.year
+        days = (end_date - start_date).days
+
     return TravelEntry(
         name=d["name"],
         country=d["country"],
-        start_date=date.fromisoformat(d["start_date"]),
-        end_date=date.fromisoformat(d["end_date"]),
+        year=year,
+        days=days,
         locations=locations,
         text=d.get("text"),
         photos=d.get("photos", []),

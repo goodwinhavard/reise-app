@@ -36,7 +36,7 @@ for country_name, data in country_data.items():
 
     trips = data["trips"]
     trips_summary = "<br>".join(
-        f"• {t.get_name()} ({t.get_start_date().year})" for t in trips
+        f"• {t.get_name()} ({t.get_year()})" for t in trips
     )
     cities = []
     for t in trips:
@@ -46,7 +46,7 @@ for country_name, data in country_data.items():
         "country": country_name,
         "iso_alpha": country_obj.alpha_3,
         "trips": len(trips),
-        "years": ", ".join(sorted(set(str(t.get_start_date().year) for t in trips))),
+        "years": ", ".join(sorted(set(str(t.get_year()) for t in trips))),
         "cities": ", ".join(sorted(set(cities))),
         "trips_summary": trips_summary,
     })

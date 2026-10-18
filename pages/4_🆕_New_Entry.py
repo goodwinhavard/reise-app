@@ -45,15 +45,14 @@ render_sidebar()
 st.title("Add new travel entry")
 
 st.session_state.travel_name = st.text_input("Travel Name")
-st.session_state.travel_start_date = st.date_input("Travel Start Date", min_value=datetime.date(year=1984, month=1, day=1))
-
-end_date_mode = st.radio("Set end date by", ["Calendar", "Number of days"], horizontal=True)
-if end_date_mode == "Number of days":
-    num_days = st.number_input("Trip length (days)", min_value=1, value=1, step=1)
-    st.session_state.travel_end_date = st.session_state.travel_start_date + datetime.timedelta(days=int(num_days))
-    st.caption(f"Travel End Date: {st.session_state.travel_end_date}")
-else:
-    st.session_state.travel_end_date = st.date_input("Travel End Date", min_value=st.session_state.travel_start_date)
+st.session_state.travel_year = st.number_input(
+    "Travel Year",
+    min_value=1984,
+    max_value=9999,
+    value=datetime.date.today().year,
+    step=1,
+)
+st.session_state.travel_days = st.number_input("Number of days", min_value=0, value=1, step=1)
 
 st.session_state.travel_text = st.text_area("Add your personal notes")
 
@@ -154,8 +153,8 @@ if st.button("Add Entry"):
         new_entry = TravelEntry(
             name=st.session_state.travel_name,
             country=st.session_state.travel_country,
-            start_date=st.session_state.travel_start_date,
-            end_date=st.session_state.travel_end_date,
+            year=st.session_state.travel_year,
+            days=st.session_state.travel_days,
             locations=st.session_state.locations_list,
             text=st.session_state.travel_text,
             photos=photo_paths,
@@ -167,6 +166,6 @@ if st.button("Add Entry"):
 if st.button("Clear All"):
     st.session_state.locations_list = []
     st.session_state.travel_name = ""
-    st.session_state.travel_start_date = None
-    st.session_state.travel_end_date = None
+    st.session_state.travel_year = datetime.date.today().year
+    st.session_state.travel_days = 1
     st.session_state.travel_text = ""

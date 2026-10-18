@@ -13,8 +13,8 @@ Edit `travel_data.json` by hand (or keep using the Streamlit app in `app.py` /
 {
   "name": "Skopje",
   "country": "North Macedonia",
-  "start_date": "2025-10-03",
-  "end_date": "2025-10-07",
+  "year": 2025,
+  "days": 4,
   "text": "Free-text notes, shown as-is.",
   "locations": [{ "cname": "Skopje", "x_coord": 41.99, "y_coord": 21.43 }],
   "photos": ["photos\\Skopje\\IMG_4261.JPEG"]
