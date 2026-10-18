@@ -673,5 +673,38 @@
       "photos\\Japan\\0495.JPG",
       "photos\\Japan\\0549.JPG"
     ]
+  },
+  {
+    "name": "Liseberg",
+    "country": "Sweden",
+    "start_date": "1990-05-04",
+    "end_date": "1990-05-07",
+    "text": "",
+    "locations": [
+      {
+        "cname": "Amsterdam",
+        "x_coord": 52.3730796,
+        "y_coord": 4.8924534
+      }
+    ],
+    "photos": []
+  },
+  {
+    "name": "Roadtrip - Amsterdam",
+    "country": "Netherlands",
+    "start_date": "2005-07-10",
+    "end_date": "2005-07-12",
+    "text": "Del av roadtrip - Amsterdam",
+    "locations": [
+      {
+        "cname": "Amsterdam",
+        "x_coord": 52.3730796,
+        "y_coord": 4.8924534
+      }
+    ],
+    "photos": [
+      "photos\\Roadtrip_-_Amsterdam\\DSC01062.JPG",
+      "photos\\Roadtrip_-_Amsterdam\\DSC01063.JPG"
+    ]
   }
 ]
